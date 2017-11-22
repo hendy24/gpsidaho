@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md navbar-trans fixed-top navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a href="#" class="navbar-brand">GPS Health &amp; Wellness</a>
+
+  <a routerLink="login" class="login">Login</a>
+  <div class="collapse navbar-collapse navbar-menu">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a href="" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" routerLinkActive="active" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Services</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a routerLink="/services/habilitative-support" class="dropdown-item">Habilitative Support &amp; Intervention</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" routerLinkActive="active" id="aboutDropDownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="true">About</a>
+        <div class="dropdown-menu" aria-labelledby="aboutDropDownMenuLink">
+          <a routerLink="/about/our-company" class="dropdown-item">Our Company</a>
+          <a routerLink="/about/our-team" class="dropdown-item">Our Team</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/contact" routerLinkActive="active" class="nav-link">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/blog" routerLinkActive="active" class="nav-link">Blog</a>
+      </li>
+    </ul>
+  </div>
+</nav>
