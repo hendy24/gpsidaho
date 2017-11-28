@@ -15,4 +15,22 @@ router.get('/', function(req, res) {
         })
 });
 
+router.post('/', function (req, res) {
+    var newTeamMember = new teamMember();
+    newTeamMember.name = req.body.name;
+    newTeamMember.title = req.body.title;
+    newTeamMember.bio = req.body.bio;
+    if (newTeamMember.name) {
+        newTeamMember.save(function(err, data) {
+            if (err) {
+                console.log('Error adding new team member info');
+            } else {
+                res.json(data);
+            }
+        })
+    } else {
+        res.json('Please enter the new team member info');
+    }
+})
+
 module.exports = router;

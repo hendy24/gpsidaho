@@ -13,7 +13,7 @@ export class BlogService {
 
   getPosts() {
     this.http.get('/api/posts').subscribe(data => {
-      this.posts = data;
+      return data;
     });
   }
 }
