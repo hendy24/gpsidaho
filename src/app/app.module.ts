@@ -23,7 +23,6 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 
 import { LengthPipe } from './_pipes/length.pipe';
-// import { AlertComponent } from './_directives/alert.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 
@@ -43,7 +42,6 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
     FooterComponent,
     LoginComponent,
     LengthPipe,
-    // AlertComponent,
     DashboardComponent
   ],
   imports: [
