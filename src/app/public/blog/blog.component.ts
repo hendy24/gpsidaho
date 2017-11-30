@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 
 // import { BlogService } from '../blog.service';
-import { Blog } from '../_models/blog';
+import { Blog } from '../../_models/blog';
 
 @Component({
   selector: 'app-blog',

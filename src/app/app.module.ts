@@ -7,23 +7,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { NavComponent } from './nav/nav.component';
-import { BlogComponent } from './blog/blog.component';
+import { HomeComponent } from './public/home/home.component';
+import { NavComponent } from './public/nav/nav.component';
+import { BlogComponent } from './public/blog/blog.component';
 
 import { BlogService } from './_services/blog.service';
-import { AboutComponent } from './about/about.component';
-import { OurCompanyComponent } from './about/our-company/our-company.component';
-import { OurTeamComponent } from './about/our-team/our-team.component';
-import { ServicesComponent } from './services/services.component';
-import { HabilitativeSupportComponent } from './services/habilitative-support/habilitative-support.component';
-import { ContactComponent } from './contact/contact.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
+import { AboutComponent } from './public/about/about.component';
+import { OurCompanyComponent } from './public/about/our-company/our-company.component';
+import { OurTeamComponent } from './public/about/our-team/our-team.component';
+import { ServicesComponent } from './public/services/services.component';
+import { HabilitativeSupportComponent } from './public/services/habilitative-support/habilitative-support.component';
+import { ContactComponent } from './public/contact/contact.component';
+import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
+import { FooterComponent } from './public/footer/footer.component';
+import { LoginComponent } from './public/login/login.component';
 
 import { LengthPipe } from './_pipes/length.pipe';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { DashboardComponent } from './private/dashboard/dashboard.component';
+import { SiteLayoutComponent } from './public/site-layout/site-layout.component';
+import { AppLayoutComponent } from './private/app-layout/app-layout.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
     FooterComponent,
     LoginComponent,
     LengthPipe,
-    DashboardComponent
+    DashboardComponent,
+    SiteLayoutComponent,
+    AppLayoutComponent
   ],
   imports: [
     BrowserModule,
