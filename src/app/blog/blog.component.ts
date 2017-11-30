@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
-import { BlogService } from '../blog.service';
-import { Blog } from '../blog';
+// import { BlogService } from '../blog.service';
+import { Blog } from '../_models/blog';
 
 @Component({
   selector: 'app-blog',
@@ -13,7 +14,7 @@ export class BlogComponent implements OnInit {
 
   posts: any;
 
-  constructor(private http: HttpClient, private blogService: BlogService) {
+  constructor(private http: HttpClient) {
    }
 
   ngOnInit(): void {

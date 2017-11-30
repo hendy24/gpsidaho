@@ -1,9 +1,21 @@
 <h1>Recent Posts</h1>
 <div class="container">
-  <div class="row">
-    <div class="col-md-4 col-sm-12 col-xs-12 post-container" *ngFor="let post of posts">
-      <a routerLink="/post/{{ post._id }}">{{ post.title }}</a>
-      <p>{{ post.content }}</p>
+  <div class="posts" *ngFor="let post of posts">
+    <div class="row post-container">
+      <div class="col-md-8">
+        <a routerLink="/blog/{{ post._id }}" class="post-title">{{ post.title }}</a>
+      </div>
+      <div class="col-md-4 date-title">
+        {{ post.date | date:'fullDate'}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div *ngIf="post.image">
+          <img src="./assets/images/{{ post.image }}" class="img-thumbnail" alt="">
+        </div>
+        <p>{{ post.content | length: 1200 }} <a routerLink="/blog/{{ post._id }}">Read more</a></p>
+      </div>
     </div>
   </div>
 </div>

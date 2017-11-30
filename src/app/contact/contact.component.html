@@ -1,1 +1,58 @@
-<h1>Contact Us</h1>
+<div class="container">
+    <h1 class="text-center">Contact Us</h1>
+    <p>We are headquartered in Meridian, ID and provide services for the entire Treasure Valley area including Boise, Meridian,
+        Eagle, Star, Middleton, Nampa, Caldwell, and Kuna. Feel free to use the form below to send us a message and we will
+        get right back to you. This is test content.</p>
+    <form (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">d
+                    <label for="firstName">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName">
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" id="email" name="email">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" class="form-control" id="subject" name="subject">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <br>
+                    <textarea name="" id="message" rows="10" name="message"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <button class="btn btn-success float-right" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

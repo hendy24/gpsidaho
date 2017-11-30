@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -8,9 +8,16 @@ import { Http } from '@angular/http';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  submitted = false;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    console.log('Email has been submitted');
   }
 
 

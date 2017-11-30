@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { BlogComponent } from './blog/blog.component';
 
-import { BlogService } from './blog.service';
+import { BlogService } from './_services/blog.service';
 import { AboutComponent } from './about/about.component';
 import { OurCompanyComponent } from './about/our-company/our-company.component';
 import { OurTeamComponent } from './about/our-team/our-team.component';
@@ -21,6 +21,10 @@ import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
+
+import { LengthPipe } from './_pipes/length.pipe';
+// import { AlertComponent } from './_directives/alert.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -37,7 +41,10 @@ import { LoginComponent } from './login/login.component';
     ContactComponent,
     PageNotFoundComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    LengthPipe,
+    // AlertComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

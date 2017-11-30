@@ -1,11 +1,32 @@
-.post-container {
-    background-color: #363e45;
-    padding: 23px;
-    margin-bottom: 30px;
-    height: 100%;
-    position: relative;
+.posts {
+    margin-bottom: 75px;
+
+    p {
+        margin: 0 0 25px 0;
+        padding: 0;
+        color: #5D5C61;
+        text-align: justify;
+    }
+
+    img {
+        width: 400px;
+        float: left;
+        margin-left: 0;
+    }
 }
 
-.post-container p {
-    margin: 20px 0 25px 0;
+.date-title {
+    padding: 20px 0 0 0;
+    text-align: right;
+}
+
+.date {
+    color: #B1A296;
+}
+
+.post-title {
+    color: #7395AE;
+    text-transform: uppercase;
+    font-size: 1.8em;
+    line-height: 2em;
 }
