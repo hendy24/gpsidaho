@@ -1,0 +1,19 @@
+@import '../../../../styles/_vars';
+
+.table-header {
+    font-weight: bold;
+    border-bottom: 1px solid $brown;
+}
+
+.item {
+    border-bottom: 1px dotted $brown;
+    height: 50px;
+}
+
+.item-container {
+    margin: 10px;
+}
+
+.vert-center {
+    margin-top: 8px;
+}

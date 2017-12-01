@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="manage-form">
+    <h1>New Blog Post</h1>
+
+    <div [hidden]="submitted">
+
+      <form (ngSubmit)="onSubmit()" #newBlogPost="ngForm">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+            <div *ngIf="title.errors.required">
+              Please add a new blog post title.
+            </div>
+          </div>
+          <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title" #title="ngModel">
+        </div>
+
+        <div class="form-group">
+          <label for="image">Upload Image</label>
+          <input type="file" class="form-control" id="image" [(ngModel)]="model.image" name="image">
+        </div>
+
+        <div class="form-group">
+          <label for="content">Post Content</label>
+          <br>
+          <div *ngIf="content.invalid && (content.dirty || content.touched)" class="alert alert-danger">
+            <div *ngIf="content.errors.required">
+              Please add content for the new blog post.
+            </div>
+          </div>
+          <textarea name="content" id="content" required [(ngModel)]="model.content" #content="ngModel"></textarea>
+        </div>
+
+        <button class="btn btn-success" type="submit" [disabled]="!newBlogPost.form.valid">Save</button>
+      </form>
+
+    </div>
+
+    <div [hidden]="!submitted">
+      <h2>The Blog Post has been saved</h2>
+      <div class="row">
+        <div class="col-xs-3">
+          <strong>Title:</strong>
+        </div>
+        <div class="col-xs-9 pull-left">&nbsp;{{ model.title }}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">
+          <strong>Date:</strong>
+        </div>
+        <div class="col-xs-9 pull-left">&nbsp;{{ model.date }}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">
+          <strong>Author:</strong>
+        </div>
+        <div class="col-xs-9 pull-left">&nbsp;{{ model.user_created }}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">
+          <strong>Content:</strong>
+        </div>
+        <div class="col-xs-9 pull-left">&nbsp;{{ model.content }}</div>
+      </div>
+
+      <br>
+      <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+    </div>
+
+  </div>

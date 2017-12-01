@@ -5,13 +5,19 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
+
+// Services
+import { BlogService } from './_services/blog.service';
+
+// Pipes
+import { LengthPipe } from './_pipes/length.pipe';
+
+// Public components
+import { SiteLayoutComponent } from './public/site-layout/site-layout.component';
 import { HomeComponent } from './public/home/home.component';
 import { NavComponent } from './public/nav/nav.component';
 import { BlogComponent } from './public/blog/blog.component';
-
-import { BlogService } from './_services/blog.service';
 import { AboutComponent } from './public/about/about.component';
 import { OurCompanyComponent } from './public/about/our-company/our-company.component';
 import { OurTeamComponent } from './public/about/our-team/our-team.component';
@@ -22,10 +28,21 @@ import { PageNotFoundComponent } from './public/page-not-found/page-not-found.co
 import { FooterComponent } from './public/footer/footer.component';
 import { LoginComponent } from './public/login/login.component';
 
-import { LengthPipe } from './_pipes/length.pipe';
-import { DashboardComponent } from './private/dashboard/dashboard.component';
-import { SiteLayoutComponent } from './public/site-layout/site-layout.component';
+// Private components
 import { AppLayoutComponent } from './private/app-layout/app-layout.component';
+import { DashboardComponent } from './private/dashboard/dashboard.component';
+import { DashboardNavComponent } from './private/dashboard-nav/dashboard-nav.component';
+import { DashboardFooterComponent } from './private/dashboard-footer/dashboard-footer.component';
+import { BlogPostsComponent } from './private/manage/blog-posts/blog-posts.component';
+import { UsersComponent } from './private/manage/users/users.component';
+import { JobPostingsComponent } from './private/manage/job-postings/job-postings.component';
+import { TeamMembersComponent } from './private/manage/team-members/team-members.component';
+import { CompanyNewsComponent } from './private/manage/company-news/company-news.component';
+import { TrainingVideosComponent } from './private/training/training-videos/training-videos.component';
+import { TrainingDocsComponent } from './private/training/training-docs/training-docs.component';
+import { ManageTrainingVideosComponent } from './private/manage/manage-training-videos/manage-training-videos.component';
+import { ManageTrainingDocsComponent } from './private/manage/manage-training-docs/manage-training-docs.component';
+import { PostComponent } from './private/manage/blog-posts/post/post.component';
 
 
 @NgModule({
@@ -46,12 +63,25 @@ import { AppLayoutComponent } from './private/app-layout/app-layout.component';
     LengthPipe,
     DashboardComponent,
     SiteLayoutComponent,
-    AppLayoutComponent
+    AppLayoutComponent,
+    DashboardNavComponent,
+    DashboardFooterComponent,
+    BlogPostsComponent,
+    UsersComponent,
+    JobPostingsComponent,
+    TeamMembersComponent,
+    CompanyNewsComponent,
+    TrainingVideosComponent,
+    TrainingDocsComponent,
+    ManageTrainingVideosComponent,
+    ManageTrainingDocsComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     BlogService

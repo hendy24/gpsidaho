@@ -28,11 +28,11 @@ export class UserService {
     }
 
     addUser(user: User) {
-        return this.http.post('/users/add-user', user);
+        return this.http.post('/users/add-user', user).subscribe();
     }
 
     updateUser(user: User) {
-        return this.http.post('/users/' + user._id, user);
+        return this.http.post('/users/' + user._id, user).subscribe();
     }
 
     deleteUser(_id: string) {

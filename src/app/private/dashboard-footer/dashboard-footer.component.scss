@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+@import '../../../styles/_vars';
+
+
+/* Footer Section */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 30px;
+  height: auto;
+  font-family: 'Maven Pro', sans-serif;
+  background-color: $true-black;
+  color: $white;
+  z-index: 10;
+}
+
+  p {
+    margin: auto;
+    text-align: center;
+    color: $brown;
+  }
+
+
+

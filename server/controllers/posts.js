@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const post = require('../models/post');
-const dateformat = require('dateformat');
+// const dateformat = require('dateformat');
 
 
 router.get('/', function (req, res) {
@@ -17,11 +17,10 @@ router.get('/', function (req, res) {
         })
 });
 
-router.post('/', function (req, res) {
-    var now = new Date();
+router.post('/add-post', function (req, res) {
     var newPost = new post();
+    console.log(req.body);
     newPost.title = req.body.title;
-    newPost.date = dateformat(now, 'isoDate');
     newPost.author = req.body.author;
     newPost.content = req.body.content;
     if (newPost.title) {
@@ -29,6 +28,7 @@ router.post('/', function (req, res) {
             if (err) {
                 console.log('There was an error adding the new post');
             } else {
+                console.log('Save the new blog post');
                 res.json(addedPost);
             }
         })

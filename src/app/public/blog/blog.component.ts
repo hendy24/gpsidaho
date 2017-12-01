@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 
-// import { BlogService } from '../blog.service';
+import { BlogService } from '../../_services/blog.service';
 import { Blog } from '../../_models/blog';
 
 @Component({
@@ -14,15 +14,14 @@ export class BlogComponent implements OnInit {
 
   posts: any;
 
-  constructor(private http: HttpClient) {
-   }
+  constructor(private http: HttpClient, private _blogService: BlogService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.http.get('/api/posts').subscribe(data => {
       this.posts = data;
       console.log(this.posts);
     });
-    // this.posts = this.blogService.getPosts();
+    // this.posts = this._blogService.getPosts();
   }
 
 }

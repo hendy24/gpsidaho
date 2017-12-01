@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Ubuntu');
+@import '../../../styles/_vars';
+
+.container {
+    margin-top: 150px;
+}
+
+h1, p {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+p {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+    text-align: center;
+    margin: 25px auto;
+}

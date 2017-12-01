@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Ubuntu');
+@import '../../../styles/_vars';
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background: $white;
+  color: $black;
+  margin-bottom: 30px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+  font-family: 'Julius Sans One', sans-serif;
+  text-align: center;
+  font-size: 2em;
+  line-height: 2.2em;
+}
+
+.container {
+  position: relative;
+  width: 82%;
+  margin-left: 18%;
+  height: 100%;
+  padding: 25px;
+
+  p {
+    margin: 25px 0;
+  }
+
+}
+
+.manage-form {
+    width: 80%;
+    height: auto;
+    margin: 25px auto;
+
+    textarea {
+      width: 100%;
+      height: auto;
+      min-height: 250px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+}
