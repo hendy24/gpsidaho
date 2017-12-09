@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,6 +10,7 @@ import { AppComponent } from './app.component';
 
 // Services
 import { BlogService } from './_services/blog.service';
+import { JobPostService } from './_services/job-post.service';
 
 // Pipes
 import { LengthPipe } from './_pipes/length.pipe';
@@ -43,6 +45,8 @@ import { TrainingDocsComponent } from './private/training/training-docs/training
 import { ManageTrainingVideosComponent } from './private/manage/manage-training-videos/manage-training-videos.component';
 import { ManageTrainingDocsComponent } from './private/manage/manage-training-docs/manage-training-docs.component';
 import { PostComponent } from './private/manage/blog-posts/post/post.component';
+import { NewJobOpeningComponent } from './private/manage/job-postings/new-job-opening/new-job-opening.component';
+import { BlogDetailsComponent } from './public/blog-details/blog-details.component';
 
 
 @NgModule({
@@ -75,16 +79,20 @@ import { PostComponent } from './private/manage/blog-posts/post/post.component';
     TrainingDocsComponent,
     ManageTrainingVideosComponent,
     ManageTrainingDocsComponent,
-    PostComponent
+    PostComponent,
+    NewJobOpeningComponent,
+    BlogDetailsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [
-    BlogService
+    BlogService,
+    JobPostService
   ],
   bootstrap: [AppComponent]
 })

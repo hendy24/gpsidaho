@@ -20,6 +20,7 @@ import { BlogPostsComponent } from './private/manage/blog-posts/blog-posts.compo
 import { PostComponent } from './private/manage/blog-posts/post/post.component';
 import { UsersComponent } from './private/manage/users/users.component';
 import { JobPostingsComponent } from './private/manage/job-postings/job-postings.component';
+import { NewJobOpeningComponent } from './private/manage/job-postings/new-job-opening/new-job-opening.component';
 import { TeamMembersComponent } from './private/manage/team-members/team-members.component';
 import { CompanyNewsComponent } from './private/manage/company-news/company-news.component';
 import { ManageTrainingVideosComponent } from './private/manage/manage-training-videos/manage-training-videos.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
       { path: 'manage/blog-posts/post/:id', component: PostComponent },
       { path: 'manage/users', component: UsersComponent },
       { path: 'manage/job-postings', component: JobPostingsComponent },
+      { path: 'manage/job-postings/new-job-opening', component: NewJobOpeningComponent },
       { path: 'manage/team-members', component: TeamMembersComponent },
       { path: 'manage/company-news', component: CompanyNewsComponent },
       { path: 'manage/manage-training-videos', component: ManageTrainingVideosComponent },

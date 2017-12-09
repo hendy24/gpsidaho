@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 
 import { BlogService } from '../../_services/blog.service';
-import { Blog } from '../../_models/blog';
+import { BlogPost } from '../../_models/blog-post';
 
 @Component({
   selector: 'app-blog',
@@ -17,11 +17,7 @@ export class BlogComponent implements OnInit {
   constructor(private http: HttpClient, private _blogService: BlogService) {}
 
   ngOnInit() {
-    this.http.get('/api/posts').subscribe(data => {
-      this.posts = data;
-      console.log(this.posts);
-    });
-    // this.posts = this._blogService.getPosts();
+    this._blogService.fetchPosts().subscribe(data => this.posts = data);
   }
 
 }

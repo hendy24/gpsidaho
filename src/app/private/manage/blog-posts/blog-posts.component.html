@@ -7,7 +7,7 @@
       <a routerLink="/dashboard/manage/blog-posts/post" class="btn btn-primary">New Post</a>
     </div>
   </div>
-  
+
   <div class="table-header">
     <div class="row">
       <div class="col-md-5">
@@ -30,7 +30,7 @@
         <a routerLink="/dashboard/manage/blog-posts/post/{{ post._id }}" class="btn btn-secondary">Edit</a>
       </div>
       <div class="col-md-2 col-sm-6">
-        <button class="btn btn-danger">Delete</button>
+        <button (click)="deletePost(post._id)" class="btn btn-danger">Delete</button>
       </div>
     </div>
   </div>

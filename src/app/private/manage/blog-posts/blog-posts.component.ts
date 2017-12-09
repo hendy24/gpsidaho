@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { BlogService } from '../../../_services/blog.service';
+
 @Component({
   selector: 'app-blog-posts',
   templateUrl: './blog-posts.component.html',
@@ -10,13 +12,14 @@ export class BlogPostsComponent implements OnInit {
 
   posts: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _blogService: BlogService) { }
 
-  ngOnInit(): void {
-    this.http.get('/api/posts').subscribe(data => {
-      this.posts = data;
-      console.log(this.posts);
-    });
+  ngOnInit() {
+    this._blogService.fetchPosts().subscribe(data => this.posts = data);
+  }
+
+  deletePost(id) {
+    this._blogService.deletePost(id);
   }
 
 }

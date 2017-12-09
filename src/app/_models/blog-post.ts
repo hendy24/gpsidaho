@@ -1,4 +1,4 @@
-export class Blog {
+export class BlogPost {
     _id: String;
     title: String;
     image?: String;

@@ -1,14 +1,14 @@
 <div class="container">
   <div class="manage-form">
-    <h1>New Blog Post</h1>
+    <h1>Blog Post</h1>
 
     <div [hidden]="submitted">
 
       <form (ngSubmit)="onSubmit()" #newBlogPost="ngForm">
         <div class="form-group">
           <label for="title">Title</label>
-          <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
-            <div *ngIf="title.errors.required">
+          <div *ngIf="model.title.invalid && (model.title.dirty || model.title.touched)" class="alert alert-danger">
+            <div *ngIf="model.title.errors.required">
               Please add a new blog post title.
             </div>
           </div>
@@ -23,8 +23,8 @@
         <div class="form-group">
           <label for="content">Post Content</label>
           <br>
-          <div *ngIf="content.invalid && (content.dirty || content.touched)" class="alert alert-danger">
-            <div *ngIf="content.errors.required">
+          <div *ngIf="model.content.invalid && (model.content.dirty || model.content.touched)" class="alert alert-danger">
+            <div *ngIf="model.content.errors.required">
               Please add content for the new blog post.
             </div>
           </div>
