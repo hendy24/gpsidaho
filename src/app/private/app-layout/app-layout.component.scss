@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Ubuntu');
 @import '../../../styles/_vars';
 
 html {
@@ -10,11 +9,9 @@ body {
   background: $white;
   color: $black;
   margin-bottom: 30px;
-  font-family: 'Ubuntu', sans-serif;
 }
 
 h1 {
-  font-family: 'Julius Sans One', sans-serif;
   text-align: center;
   font-size: 2em;
   line-height: 2.2em;

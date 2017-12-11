@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 import { BlogService } from '../../../../_services/blog.service';
 import { BlogPost } from '../../../../_models/blog-post';
@@ -11,31 +12,46 @@ import { BlogPost } from '../../../../_models/blog-post';
   providers: [BlogService]
 })
 export class PostComponent implements OnInit {
-  constructor(private _blogService: BlogService, private route: ActivatedRoute) { }
+  private _editPost: Boolean = false;
+  private _id: string = null;
+  public post: BlogPost;
 
-  submitted = false;
-  id: string;
-  model: any;
+  constructor(private _blogService: BlogService, private route: ActivatedRoute, private router: Router) {}
+
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
-    this._blogService.fetchPost(this.id).subscribe(data => {
-      this.model = data;
-    });
+    this.post = new BlogPost();
+    // if the id is in the url then set the id and fetch the existing blog post to edit
+    if (this.route.snapshot.params['id']) {
+       this.getExistingPost();
+       this._editPost = true;
+    }
   }
 
 
+  private getExistingPost() {
+    this._id = this.route.snapshot.params['id'];
+    this._blogService.fetchPost(this._id).subscribe((data: BlogPost) => {
+      this.post = data;
+    });
+  }
+
   onSubmit() {
     // Indicate that the form has been submitted
-    this.submitted = true;
 
     // Assign the user that created the blog post
     // TO-DO: this needs to be updated to pull the user id from the session
-    // this.model.author = 'Kemish W. Hendershot';
 
     // Save the new blog post
-    // this._blogService.addPost(this.model);
+    console.log(this.post);
 
+    if (this._editPost) {
+      this._blogService.updatePost(this.post);
+    } else {
+      this._blogService.addPost(this.post);
+    }
+
+    this.router.navigateByUrl('/dashboard/manage/blog-posts');
   }
 
 }

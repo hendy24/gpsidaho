@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { BlogPost } from '../_models/blog-post';
@@ -12,20 +13,24 @@ export class BlogService {
 
   constructor(private http: HttpClient) { }
 
-  fetchPosts(): Observable<Object> {
-    return this.http.get('/api/posts').map(result => this.results = result);
+  public fetchPosts(numPosts = null): Observable<Object> {
+    return this.http.get('/api/posts/?numPosts=' + numPosts);
   }
 
-  fetchPost(id) {
-    return this.http.get('/api/posts/' + id).map(result => this.result = result);
+  public fetchPost(id): Observable<Object> {
+    return this.http.get('/api/posts/' + id);
   }
 
-  addPost(post: BlogPost) {
+  public addPost(post) {
     return this.http.post('/api/posts/add-post', post).subscribe();
   }
 
-  deletePost(_id: string) {
-    return this.http.delete('/api/posts/' + _id);
+  public updatePost(post) {
+    return this.http.put('/api/posts/' + post._id, post).subscribe();
+  }
+
+  public deletePost(_id: string) {
+    return this.http.delete('/api/posts/' + _id).subscribe();
   }
 
 }

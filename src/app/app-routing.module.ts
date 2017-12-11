@@ -12,6 +12,7 @@ import { OurTeamComponent } from './public/about/our-team/our-team.component';
 import { LoginComponent } from './public/login/login.component';
 import { PageNotFoundComponent } from './public/page-not-found/page-not-found.component';
 import { SiteLayoutComponent } from './public/site-layout/site-layout.component';
+import { BlogDetailsComponent } from './public/blog-details/blog-details.component';
 
 // Private Routes
 import { AppLayoutComponent } from './private/app-layout/app-layout.component';
@@ -61,7 +62,7 @@ const routes: Routes = [
       { path: 'about/our-team/:id', component: OurTeamComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'blog', component: BlogComponent },
-      { path: 'blog/:id', component: BlogComponent },
+      { path: 'blog-details/:id', component: BlogDetailsComponent },
       { path: 'services/habilitative-support', component: HabilitativeSupportComponent },
       { path: 'login', component: LoginComponent },
       { path: '', component: HomeComponent, pathMatch: 'full' },

@@ -56,23 +56,12 @@
 <div class="blog-section">
   <div class="layer">
     <div class="row">
-      <div class="col-lg-4 blog-section-post">
-        <h3>Blog Post 1</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit explicabo deserunt ex, tenetur consequatur, expedita
-          quo excepturi voluptatibus error ad dolorem odit iure tempore deleniti commodi eveniet architecto nemo ab.</p>
-      </div>
-      <div class="col-lg-4 blog-section-post">
-        <h3>Blog Post 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit explicabo deserunt ex, tenetur consequatur, expedita
-          quo excepturi voluptatibus error ad dolorem odit iure tempore deleniti commodi eveniet architecto nemo ab.</p>
-      </div>
-
-      <div class="col-lg-4 blog-section-post">
-        <h3>Blog Post 3</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit explicabo deserunt ex, tenetur consequatur, expedita
-          quo excepturi voluptatibus error ad dolorem odit iure tempore deleniti commodi eveniet architecto nemo ab.</p>
+      <div class="col-lg-4" *ngFor="let post of posts">
+        <div class="blog-section-post">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.content }}</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-

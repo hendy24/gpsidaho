@@ -28,4 +28,3 @@ blogPostSchema.methods = {
 };
 
 module.exports = mongoose.model('BlogPost', blogPostSchema);
-// module.exports = mongoose.model('BlogPost', blogPostSchema);

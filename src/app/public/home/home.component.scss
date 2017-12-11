@@ -109,11 +109,21 @@ a:hover {
   position: relative;
   color: #ffffff;
   text-align: center;
+  margin: 0;
 
   h3 {
     margin-top: 15px;
     text-align: left;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
   }
+}
+
+.blog-section-post {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 2px;
+  padding: 8px;
 }
 
 .blog-section-post p {
@@ -121,6 +131,3 @@ a:hover {
   width: 95%;
   margin: auto;
 }
-
-
-

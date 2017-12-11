@@ -24,7 +24,7 @@
         {{ post.title }}
       </div>
       <div class="col-md-4 vert-center date-title">
-        {{ post.date | date:'fullDate' }}
+        {{ post.date | date:'short' }}
       </div>
       <div class="col-md-1 col-sm-6 pull--md-right">
         <a routerLink="/dashboard/manage/blog-posts/post/{{ post._id }}" class="btn btn-secondary">Edit</a>

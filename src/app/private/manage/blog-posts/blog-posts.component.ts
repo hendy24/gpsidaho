@@ -19,7 +19,9 @@ export class BlogPostsComponent implements OnInit {
   }
 
   deletePost(id) {
+    console.log(id);
     this._blogService.deletePost(id);
+    // need to make the item disappear after it is removed
   }
 
 }
