@@ -30,7 +30,7 @@ export class BlogService {
   }
 
   public deletePost(_id: string) {
-    return this.http.delete('/api/posts/' + _id).subscribe();
+    return this.http.delete('/api/posts/' + _id);
   }
 
 }

@@ -1,3 +1,38 @@
-<p>
-  team-members works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h1>Team Members</h1>
+    </div>
+    <div class="col-md-2">
+      <a routerLink="/dashboard/manage/team-members/team-member" class="btn btn-primary">New Team Member</a>
+    </div>
+  </div>
+
+  <div class="table-header">
+    <div class="row">
+      <div class="col-md-5">
+        Name
+      </div>
+      <div class="col md-4">
+        Title
+      </div>
+    </div>
+  </div>
+  <div class="item" *ngFor="let member of teamMembers">
+    <div class="row item-container">
+      <div class="col-md-4 vert-center date-title">
+        {{ member.date | date:'short' }}
+      </div>
+
+      <div class="col-md-5 col-sm-12 vert-center">
+        {{ job.title }}
+      </div>
+      <div class="col-md-1 col-sm-6 pull--md-right">
+        <a routerLink="/dashboard/manage/team-members/team-member/{{ member._id }}" class="btn btn-secondary">Edit</a>
+      </div>
+      <div class="col-md-2 col-sm-6">
+        <button (click)="deleteTeamMember(member._id)" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

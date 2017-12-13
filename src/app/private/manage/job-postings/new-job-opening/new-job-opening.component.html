@@ -9,8 +9,19 @@
               Please add a job title.
             </div>
           </div>
-          <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title" #title="ngModel">
+          <input type="text" class="form-control" id="title" required [(ngModel)]="jobOpening.title" name="title" #title="ngModel">
       </div>
+
+      <div class="form-group">
+        <label for="requirements">Job Requirements</label>
+        <input type="text" class="form-control" id="requirements" [(ngModel)]="jobOpening.requirements" name="requirements" #requirements="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="salary">Job Salary</label>
+        <input type="text" class="form-control" id="salary" [(ngModel)]="jobOpening.salary" name="salary" #salary="ngModel">
+      </div>
+
 
       <div class="form-group">
         <label for="description">Job Description</label>
@@ -19,10 +30,14 @@
               Please add a Job description.
             </div>
           </div>
-          <textarea name="description" id="description" required [(ngModel)]="model.description" #description="ngModel"></textarea>
+          <textarea name="description" id="description" required [(ngModel)]="jobOpening.description" #description="ngModel"></textarea>
 
       </div>
-      <button class="btn btn-success" type="submit" [disabled]="!newJobOpening.form.valid">Save</button>
+      <div class="col-md-12">
+        <button class="btn btn-success float-md-right" type="submit" [disabled]="!newJobOpening.form.valid">Save</button>
+        <button class="btn btn-danger float-md-right" onclick="history.back()">Cancel</button>
+      </div>
+      
 
     </form>
   </div>

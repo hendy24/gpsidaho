@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 
 // Services
 import { BlogService } from './_services/blog.service';
-import { JobPostService } from './_services/job-post.service';
 
 // Pipes
 import { LengthPipe } from './_pipes/length.pipe';
@@ -47,6 +46,7 @@ import { ManageTrainingDocsComponent } from './private/manage/manage-training-do
 import { PostComponent } from './private/manage/blog-posts/post/post.component';
 import { NewJobOpeningComponent } from './private/manage/job-postings/new-job-opening/new-job-opening.component';
 import { BlogDetailsComponent } from './public/blog-details/blog-details.component';
+import { UserComponent } from './private/manage/users/user/user.component';
 
 
 @NgModule({
@@ -81,7 +81,8 @@ import { BlogDetailsComponent } from './public/blog-details/blog-details.compone
     ManageTrainingDocsComponent,
     PostComponent,
     NewJobOpeningComponent,
-    BlogDetailsComponent
+    BlogDetailsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -91,8 +92,7 @@ import { BlogDetailsComponent } from './public/blog-details/blog-details.compone
     CommonModule
   ],
   providers: [
-    BlogService,
-    JobPostService
+    BlogService
   ],
   bootstrap: [AppComponent]
 })

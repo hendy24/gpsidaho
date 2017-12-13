@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { JobPostService } from '../../../../_services/job-post.service';
-import { JobPost } from '../../../../_models/job-post';
+import { JobPostingService } from '../../../../_services/job-posting.service';
+import { JobPosting } from '../../../../_models/job-posting';
 
 @Component({
   selector: 'app-new-job-opening',
@@ -11,17 +11,33 @@ import { JobPost } from '../../../../_models/job-post';
   styleUrls: ['./new-job-opening.component.scss']
 })
 export class NewJobOpeningComponent implements OnInit {
-  submitted = false;
-  private model = new JobPost;
+  public submitted = false;
+  public jobOpening: any;
+  private _editJobOpening: Boolean = false;
+  private _id: string = null;
 
-  constructor(private _jobPostService: JobPostService, private router: ActivatedRoute) { }
+  constructor(private _jobPostService: JobPostingService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.jobOpening = new JobPosting();
+    if (this.route.snapshot.params['id']) {
+      this.getExistingJobOpening();
+      this._editJobOpening = true;
+    }
   }
 
-  onSubmit() {
-    this.submitted = true;
-    this._jobPostService.addJobOpening(this.model);
+  private getExistingJobOpening() {
+    this._id = this.route.snapshot.params['id'];
+    this._jobPostService.fetchJobOpening(this._id).subscribe((data: JobPosting) => this.jobOpening = data);
+  }
+
+  public onSubmit() {
+    if (this._editJobOpening) {
+      this._jobPostService.updateJobOpening(this.jobOpening).subscribe((data: JobPosting) => this.jobOpening = data);
+    } else {
+      this._jobPostService.addJobOpening(this.jobOpening).subscribe((data: JobPosting) => this.jobOpening = data);
+    }
+    this.router.navigateByUrl('/dashboard/manage/job-postings');
   }
 
 }

@@ -1,3 +1,37 @@
-<p>
-  job-postings works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h1>Job Postings</h1>
+    </div>
+    <div class="col-md-2">
+      <a routerLink="/dashboard/manage/job-postings/new-job-opening" class="btn btn-primary">New Job Posting</a>
+    </div>
+  </div>
+
+  <div class="table-header">
+    <div class="row">
+      <div class="col-md-5">
+        Job Title
+      </div>
+      <div class="col md-4">
+        Post Date
+      </div>
+    </div>
+  </div>
+  <div class="item" *ngFor="let job of jobPosts">
+    <div class="row item-container">
+      <div class="col-md-5 col-sm-12 vert-center">
+        {{ job.title }}
+      </div>
+      <div class="col-md-4 vert-center date-title">
+        {{ job.date | date:'short' }}
+      </div>
+      <div class="col-md-1 col-sm-6 pull--md-right">
+        <a routerLink="/dashboard/manage/job-postings/new-job-opening/{{ job._id }}" class="btn btn-secondary">Edit</a>
+      </div>
+      <div class="col-md-2 col-sm-6">
+        <button (click)="deleteJobPosting(job._id)" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

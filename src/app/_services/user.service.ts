@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Headers, RequestOptions, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 import { User } from '../_models/user';
 
@@ -11,31 +12,24 @@ export class UserService {
 
     constructor(private http: HttpClient) {}
 
-    getAll() {
-        this.http.get('/users').subscribe(data => {
-            this.results = data;
-        });
-
-        return this.results;
+    fetchUsers(): Observable<Object> {
+        return this.http.get('/api/users');
     }
 
-    getById(_id: string) {
-        this.http.get('/users/' + _id).subscribe(data => {
-            this.results = data;
-        });
-
-        return this.results;
+    fetchUser(_id: string): Observable<Object> {
+        return this.http.get('/api/users/' + _id);
     }
 
     addUser(user: User) {
-        return this.http.post('/users/add-user', user).subscribe();
+        console.log(user);
+        return this.http.post('/api/users/add-user', user).subscribe();
     }
 
     updateUser(user: User) {
-        return this.http.post('/users/' + user._id, user).subscribe();
+        return this.http.put('/api/users/' + user._id, user);
     }
 
     deleteUser(_id: string) {
-        return this.http.delete('/users/' + _id);
+        return this.http.delete('/api/users/' + _id);
     }
 }

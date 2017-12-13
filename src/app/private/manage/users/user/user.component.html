@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="manage-form">
+    <h1>User</h1>
+
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      
+      <div class="row form-group">
+        <div class="col-md-6">
+          <label for="first-name">First Name</label>
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+            <div *ngIf="firstName.errors.required">
+              Enter a first name
+            </div>
+          </div>
+          <input type="text" class="form-control" id="first-name" name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel"
+            required>
+        </div>
+        <div class="col-md-6">
+          <label for="last-name">Last Name</label>
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+            <div *ngIf="lastName.errors.required">
+              Enter a last name
+            </div>
+          </div>
+          <input type="text" class="form-control" id="last-name" name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel" required>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-12">
+          <label for="username">Username (email address)</label>
+          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+            <div *ngIf="username.errors.required">
+              Enter a username
+            </div>
+          </div>
+          <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" #username="ngModel" required>
+        </div>
+      </div>
+
+      <div *ngIf="!_editUser" class="row form-group">
+        <div class="col-md-6">
+          <label for="password">Password</label>
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <div *ngIf="password.errors.required">
+              Enter a password
+            </div>
+          </div>
+          <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required>
+        </div>
+        <div class="col-md-6">
+          <label for="conf-password">Confirm Password</label>
+          <input type="password" class="form-control" id="conf-password" name="password-conf" [(ngModel)]="user.passwordConf" #passwordconf="ngModel"
+            required>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-success float-md-right">Submit</button>
+        </div>
+      </div>
+      
+    </form>
+  </div>
+</div>
