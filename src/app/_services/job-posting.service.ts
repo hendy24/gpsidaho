@@ -11,23 +11,23 @@ export class JobPostingService {
 
   constructor(private http: HttpClient) { }
 
-//   public addJobOpening(post: JobPosting) {
-//     return this.http.post('/api/job-postings/job-post', post);
-//   }
+  public addJobOpening(post: JobPosting) {
+    return this.http.post('/api/job-postings/job-post', post);
+  }
 
-//   public fetchJobPosts() {
-//     return this.http.get('/api/job-postings');
-//   }
+  public fetchJobPosts() {
+    return this.http.get('/api/job-postings');
+  }
 
-//   public deleteJobPosting(id) {
-//     return this.http.delete('/api/job-postings/job-post/' + id);
-//   }
+  public deleteJobPosting(id) {
+    return this.http.delete('/api/job-postings/' + id);
+  }
 
-//   public fetchJobOpening(id) {
-//     return this.http.get('/api/job-postings/' + id);
-//   }
+  public fetchJobOpening(id) {
+    return this.http.get('/api/job-postings/' + id);
+  }
 
-//   public updateJobOpening(data) {
-//     return this.http.put('/api/job-postings/job-post/' + data._id, data);
-//   }
-// }
+  public updateJobOpening(data) {
+    return this.http.put('/api/job-postings/job-post/' + data._id, data);
+  }
+}

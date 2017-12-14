@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subsciption } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
 import { TeamMember } from '../../../_models/team-member';
 import { TeamMemberService } from '../../../_services/team-member.service';
@@ -13,17 +13,25 @@ import { TeamMemberService } from '../../../_services/team-member.service';
 export class TeamMembersComponent implements OnInit, OnDestroy {
 
   public teamMembers: any;
-  private teamMemberSubscription: Subsciption;
+  private subscription: Subscription;
+  private subscriptionActive: Boolean = false;
 
   constructor(private _teamMemberService: TeamMemberService) { }
 
   ngOnInit() {
     // get all the current team members
-    this.teamMemberSubscription = this._teamMemberService.fetchTeamMembers().subscribe((data: TeamMember) => this.teamMembers = data);
+    this.subscription = this._teamMemberService.fetchTeamMembers().subscribe((data: TeamMember) => this.teamMembers = data);
+    this.subscriptionActive = true;
   }
 
   ngOnDestroy() {
-    this.teamMemberSubscription.unsubscribe();
+    if (this.subscriptionActive) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+  public deleteTeamMember(id) {
+    this._teamMemberService.deleteTeamMember(id).subscribe();
   }
 
 }

@@ -1,5 +1,6 @@
+var appModel = require('../models/app.model');
 var BlogPost = require('../models/blog-post.model');
-// var BlogPost = require('mongoose').model('BlogPost');
+
 
 
 // Find the most recent blog posts
@@ -24,14 +25,9 @@ exports.fetchPosts = function(req, res, next) {
 
 exports.fetchPost = function(req, res, next) {
     var id = req.params.id;
-    BlogPost.findById(id)
-        .exec(function(err, item) {
-            if (err) {
-                console.log('Could not find the post');
-            } else {
-                res.json(item);
-            }
-        });
+    appModel.fetchOne(BlogPost, id).then(function (result) {
+        res.send(result);
+    });
 }
 
 // Add a new post
@@ -89,35 +85,3 @@ exports.deletePost = function(req, res, next) {
         }
     });
 };
-
-
-// // Get a single post by id
-// router.get('/:id', function (req, res) {
-//     Post.findById(req.params.id)
-//     .exec(function (err, post) {
-//         if (err) {
-//             console.log('Error getting the post');
-//         } else {
-//             res.json(post);
-//         }
-//     })
-// });
-
-
-// router.delete('/:id', function (req, res, next) {
-//     var id = req.params.id;
-//     console.log(Post);
-
-//     Post.findByIdAndRemove(id, function (err, deletedPost) {
-//         if (err) {
-//             console.log('There was an error deleting the post')
-//         } if (!post) {
-//             return res.send(404);
-//         } else {
-//             console.log('Removed post');
-//         }
-//     });
-// });
-
-
-// module.exports = router;

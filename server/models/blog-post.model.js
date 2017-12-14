@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var blogPostSchema = new Schema({
-    title: {type: String, required: '{PATH} is required'},
+    title: { type: String, required: true },
     date: { type: Date, default: Date.now },
     image: String,
-    content: {type: String, required: '{PATH} is required'},
+    content: { type: String, required: true },
     author: String,
     // comments: [{ body: String, date: Date }],
     // hidden: Boolean

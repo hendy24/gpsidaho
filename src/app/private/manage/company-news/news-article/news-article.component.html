@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="manage-form">
+    <h1>Company News</h1>
+    <form (ngSubmit)="onSubmit()" #companyNewsForm="ngForm">
+      <div class="form-group">
+        <label for="title">Article Title</label>
+        <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+          <div *ngIf="title.errors.required">
+            Please add an article title.
+          </div>
+        </div>
+        <input type="text" class="form-control" id="title" required [(ngModel)]="article.title" name="title" #title="ngModel" required>
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="requirements">Image</label>
+        <input type="file" class="form-control" id="image" [(ngModel)]="article.image" name="image" #image="ngModel">
+      </div> -->
+
+      <div class="form-group">
+        <label for="content">Article Content</label>
+        <div *ngIf="content.invalid && (content.dirty || content.touched)" class="alert alert-danger">
+          <div *ngIf="content.errors.required">
+            Please add content for the article.
+          </div>
+        </div>
+
+        <textarea name="content" id="content" [(ngModel)]="article.content" #content="ngModel" required></textarea>
+      </div>
+
+      <div class="col-md-12">
+        <button class="btn btn-success float-md-right" type="submit" [disabled]="!companyNewsForm.form.valid">Save</button>
+        <button class="btn btn-danger float-md-right" onclick="history.back()">Cancel</button>
+      </div>
+
+
+    </form>
+  </div>
+
+</div>

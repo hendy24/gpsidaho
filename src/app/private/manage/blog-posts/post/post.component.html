@@ -30,8 +30,9 @@
         <textarea name="content" id="content" [(ngModel)]="post.content" #content="ngModel" required></textarea>
       </div>
 
-       <button class="btn btn-success" type="submit">Save</button>
-
+      <button class="btn btn-success float-md-right" type="submit">Save</button>
+      <button class="btn btn-danger float-md-right" onclick="history.back()">Cancel</button>
+       
 
     </form>  
   </div>

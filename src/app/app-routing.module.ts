@@ -24,7 +24,9 @@ import { UserComponent } from './private/manage/users/user/user.component';
 import { JobPostingsComponent } from './private/manage/job-postings/job-postings.component';
 import { NewJobOpeningComponent } from './private/manage/job-postings/new-job-opening/new-job-opening.component';
 import { TeamMembersComponent } from './private/manage/team-members/team-members.component';
+import { TeamMemberComponent } from './private/manage/team-members/team-member/team-member.component';
 import { CompanyNewsComponent } from './private/manage/company-news/company-news.component';
+import { NewsArticleComponent } from './private/manage/company-news/news-article/news-article.component';
 import { ManageTrainingVideosComponent } from './private/manage/manage-training-videos/manage-training-videos.component';
 import { ManageTrainingDocsComponent } from './private/manage/manage-training-docs/manage-training-docs.component';
 import { TrainingVideosComponent } from './private/training/training-videos/training-videos.component';
@@ -46,7 +48,11 @@ const routes: Routes = [
       { path: 'manage/job-postings/new-job-opening', component: NewJobOpeningComponent },
       { path: 'manage/job-postings/new-job-opening/:id', component: NewJobOpeningComponent },
       { path: 'manage/team-members', component: TeamMembersComponent },
+      { path: 'manage/team-members/team-member', component: TeamMemberComponent },
+      { path: 'manage/team-members/team-member/:id', component: TeamMemberComponent },
       { path: 'manage/company-news', component: CompanyNewsComponent },
+      { path: 'manage/company-news/:id', component: NewsArticleComponent },
+      { path: 'manage/company-news/add-company-news', component: NewsArticleComponent },
       { path: 'manage/manage-training-videos', component: ManageTrainingVideosComponent },
       { path: 'manage/manage-training-docs', component: ManageTrainingDocsComponent },
       { path: 'training/videos', component: TrainingVideosComponent },

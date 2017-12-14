@@ -1,3 +1,37 @@
-<p>
-  company-news works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h1>Company News</h1>
+    </div>
+    <div class="col-md-2">
+      <a routerLink="/dashboard/manage/company-news/add-company-news" class="btn btn-primary">New Article</a>
+    </div>
+  </div>
+
+  <div class="table-header">
+    <div class="row">
+      <div class="col-md-5">
+        Title
+      </div>
+      <div class="col md-4">
+        Date Published
+      </div>
+    </div>
+  </div>
+  <div class="item" *ngFor="let news of newsArticle">
+    <div class="row item-container">
+      <div class="col-md-5 col-sm-12 vert-center">
+        {{ news.title }}
+      </div>
+      <div class="col-md-4 vert-center date-title">
+        {{ news.date | date:'short' }}
+      </div>
+      <div class="col-md-1 col-sm-6 pull--md-right">
+        <a routerLink="/dashboard/manage/company-news/{{ news._id }}" class="btn btn-secondary">Edit</a>
+      </div>
+      <div class="col-md-2 col-sm-6">
+        <button (click)="deleteCompanyNews(news._id)" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

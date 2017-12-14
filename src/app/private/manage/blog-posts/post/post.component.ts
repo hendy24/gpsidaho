@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+
 
 import { BlogService } from '../../../../_services/blog.service';
 import { BlogPost } from '../../../../_models/blog-post';
@@ -11,10 +13,12 @@ import { BlogPost } from '../../../../_models/blog-post';
   styleUrls: ['./post.component.scss'],
   providers: [BlogService]
 })
-export class PostComponent implements OnInit {
+export class PostComponent implements OnInit, OnDestroy {
   private _editPost: Boolean = false;
   private _id: string = null;
   public post: BlogPost;
+  private subscriptionActive: Boolean = false;
+  private subsciption: Subscription;
 
   constructor(private _blogService: BlogService, private route: ActivatedRoute, private router: Router) {}
 
@@ -28,11 +32,18 @@ export class PostComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+    if (this.subscriptionActive) {
+      this.subsciption.unsubscribe();
+    }
+  }
+
 
   private getExistingPost() {
     this._id = this.route.snapshot.params['id'];
-    this._blogService.fetchPost(this._id).subscribe((data: BlogPost) => {
+    this.subsciption = this._blogService.fetchPost(this._id).subscribe((data: BlogPost) => {
       this.post = data;
+    this.subscriptionActive = true;
     });
   }
 

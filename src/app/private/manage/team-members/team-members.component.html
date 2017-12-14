@@ -21,11 +21,11 @@
   <div class="item" *ngFor="let member of teamMembers">
     <div class="row item-container">
       <div class="col-md-4 vert-center date-title">
-        {{ member.date | date:'short' }}
+        {{ member.firstName }} {{member.middleName }} {{ member.lastName }}
       </div>
 
       <div class="col-md-5 col-sm-12 vert-center">
-        {{ job.title }}
+        {{ member.title }}
       </div>
       <div class="col-md-1 col-sm-6 pull--md-right">
         <a routerLink="/dashboard/manage/team-members/team-member/{{ member._id }}" class="btn btn-secondary">Edit</a>

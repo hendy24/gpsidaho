@@ -47,6 +47,8 @@ import { PostComponent } from './private/manage/blog-posts/post/post.component';
 import { NewJobOpeningComponent } from './private/manage/job-postings/new-job-opening/new-job-opening.component';
 import { BlogDetailsComponent } from './public/blog-details/blog-details.component';
 import { UserComponent } from './private/manage/users/user/user.component';
+import { TeamMemberComponent } from './private/manage/team-members/team-member/team-member.component';
+import { NewsArticleComponent } from './private/manage/company-news/news-article/news-article.component';
 
 
 @NgModule({
@@ -82,7 +84,9 @@ import { UserComponent } from './private/manage/users/user/user.component';
     PostComponent,
     NewJobOpeningComponent,
     BlogDetailsComponent,
-    UserComponent
+    UserComponent,
+    TeamMemberComponent,
+    NewsArticleComponent
   ],
   imports: [
     BrowserModule,
