@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Component, OnInit } from '@angular/core';
 
 import { NewsArticle } from '../../../_models/news-article';
 import { CompanyNewsService } from '../../../_services/company-news.service';
@@ -10,26 +9,19 @@ import { CompanyNewsService } from '../../../_services/company-news.service';
   styleUrls: ['./company-news.component.scss'],
   providers: [CompanyNewsService]
 })
-export class CompanyNewsComponent implements OnInit, OnDestroy {
+export class CompanyNewsComponent implements OnInit {
 
-  private subscription: Subscription;
-  private subscriptionActive: Boolean = false;
-  public newsArticle: NewsArticle;
+  public newsArticle: any;
 
   constructor(private _companyNewsService: CompanyNewsService) { }
 
   ngOnInit() {
-    this.subscription = this._companyNewsService.fetchCompanyNews().subscribe((data: NewsArticle) => {
-      this.newsArticle = data;
-      console.log(data);
-    });
-    this.subscriptionActive = true;
+    this._companyNewsService.fetchCompanyNews().subscribe(data => this.newsArticle = data);
   }
 
-  ngOnDestroy() {
-    if (this.subscriptionActive) {
-      this.subscription.unsubscribe();
-    }
+
+  public deleteCompanyNews(id) {
+    this._companyNewsService.deleteCompanyNews(id).subscribe(data => this.newsArticle = data);
   }
 
 }

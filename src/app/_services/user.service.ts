@@ -22,7 +22,7 @@ export class UserService {
 
     addUser(user: User) {
         console.log(user);
-        return this.http.post('/api/users/add-user', user).subscribe();
+        return this.http.post('/api/users/add-user', user);
     }
 
     updateUser(user: User) {

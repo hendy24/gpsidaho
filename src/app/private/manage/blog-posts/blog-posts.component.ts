@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Component, OnInit } from '@angular/core';
 
 import { BlogService } from '../../../_services/blog.service';
 
@@ -8,25 +7,19 @@ import { BlogService } from '../../../_services/blog.service';
   templateUrl: './blog-posts.component.html',
   styleUrls: ['./blog-posts.component.scss']
 })
-export class BlogPostsComponent implements OnInit, OnDestroy {
-  private blogPostSubscription: Subscription;
+export class BlogPostsComponent implements OnInit {
 
   posts: any;
 
   constructor(private _blogService: BlogService) { }
 
   ngOnInit() {
-    this.blogPostSubscription = this._blogService.fetchPosts().subscribe(data => this.posts = data);
+    this._blogService.fetchPosts().subscribe(data => this.posts = data);
   }
 
   deletePost(id) {
-    console.log(id);
-    this.blogPostSubscription = this._blogService.deletePost(id).subscribe();
-    // need to make the item disappear after it is removed
+    this._blogService.deletePost(id).subscribe();
   }
 
-  ngOnDestroy() {
-    this.blogPostSubscription.unsubscribe();
-  }
 
 }

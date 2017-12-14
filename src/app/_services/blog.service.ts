@@ -22,11 +22,11 @@ export class BlogService {
   }
 
   public addPost(post) {
-    return this.http.post('/api/posts/add-post', post).subscribe();
+    return this.http.post('/api/posts/add-post', post);
   }
 
   public updatePost(post) {
-    return this.http.put('/api/posts/' + post._id, post).subscribe();
+    return this.http.put('/api/posts/' + post._id, post);
   }
 
   public deletePost(_id: string) {

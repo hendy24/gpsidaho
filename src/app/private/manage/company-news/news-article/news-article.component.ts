@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router'; import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { NewsArticle } from '../../../../_models/news-article';
 import { CompanyNewsService } from '../../../../_services/company-news.service';
@@ -11,12 +10,10 @@ import { CompanyNewsService } from '../../../../_services/company-news.service';
   styleUrls: ['./news-article.component.scss'],
   providers: [CompanyNewsService]
 })
-export class NewsArticleComponent implements OnInit, OnDestroy {
+export class NewsArticleComponent implements OnInit {
   private _id: string;
   private _edit: Boolean = false;
-  public article: NewsArticle;
-  private subsciption: Subscription;
-  private subscriptionActive: Boolean = false;
+  public article: any;
 
   constructor(private _companyNewsService: CompanyNewsService, private route: ActivatedRoute, private router: Router) { }
 
@@ -29,12 +26,6 @@ export class NewsArticleComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnDestroy() {
-    if (this.subscriptionActive) {
-      this.subsciption.unsubscribe();
-    }
-  }
-
   /*
     -------------------
     PUBLIC FUNCTIONS
@@ -43,14 +34,12 @@ export class NewsArticleComponent implements OnInit, OnDestroy {
 
   public onSubmit() {
     if (this._edit) {
-      this.subsciption = this._companyNewsService.updateNewsArticle(this.article).subscribe((data: NewsArticle) => {
+     this._companyNewsService.updateNewsArticle(this.article).subscribe((data: NewsArticle) => {
         this.article = data;
-        this.subscriptionActive = true;
       });
     } else {
       this._companyNewsService.addCompanyNews(this.article).subscribe((data: NewsArticle) => {
         this.article = data;
-        this.subscriptionActive = true;
       });
     }
 
@@ -68,11 +57,9 @@ export class NewsArticleComponent implements OnInit, OnDestroy {
 
   private getExisting() {
     this._id = this.route.snapshot.params['id'];
-    this.subsciption = this._companyNewsService.fetchNewsArticle(this._id).subscribe((data: NewsArticle) => {
+    this._companyNewsService.fetchNewsArticle(this._id).subscribe((data: NewsArticle) => {
       this.article = data;
-      console.log(data);
     });
-    this.subscriptionActive = true;
   }
 
 }

@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Component, OnInit } from '@angular/core';
 
 import { TeamMember } from '../../../_models/team-member';
 import { TeamMemberService } from '../../../_services/team-member.service';
@@ -10,25 +9,17 @@ import { TeamMemberService } from '../../../_services/team-member.service';
   styleUrls: ['./team-members.component.scss'],
   providers: [TeamMemberService]
 })
-export class TeamMembersComponent implements OnInit, OnDestroy {
+export class TeamMembersComponent implements OnInit {
 
   public teamMembers: any;
-  private subscription: Subscription;
-  private subscriptionActive: Boolean = false;
 
   constructor(private _teamMemberService: TeamMemberService) { }
 
   ngOnInit() {
     // get all the current team members
-    this.subscription = this._teamMemberService.fetchTeamMembers().subscribe((data: TeamMember) => this.teamMembers = data);
-    this.subscriptionActive = true;
+    this._teamMemberService.fetchTeamMembers().subscribe((data: TeamMember) => this.teamMembers = data);
   }
 
-  ngOnDestroy() {
-    if (this.subscriptionActive) {
-      this.subscription.unsubscribe();
-    }
-  }
 
   public deleteTeamMember(id) {
     this._teamMemberService.deleteTeamMember(id).subscribe();

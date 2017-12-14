@@ -4,7 +4,7 @@
       <h1>Company News</h1>
     </div>
     <div class="col-md-2">
-      <a routerLink="/dashboard/manage/company-news/add-company-news" class="btn btn-primary">New Article</a>
+      <a routerLink="/dashboard/manage/company-news/new-article" class="btn btn-primary">New Article</a>
     </div>
   </div>
 
@@ -27,7 +27,7 @@
         {{ news.date | date:'short' }}
       </div>
       <div class="col-md-1 col-sm-6 pull--md-right">
-        <a routerLink="/dashboard/manage/company-news/{{ news._id }}" class="btn btn-secondary">Edit</a>
+        <a routerLink="/dashboard/manage/company-news/article/{{ news._id }}" class="btn btn-secondary">Edit</a>
       </div>
       <div class="col-md-2 col-sm-6">
         <button (click)="deleteCompanyNews(news._id)" class="btn btn-danger">Delete</button>

@@ -25,4 +25,8 @@ export class CompanyNewsService {
     return this._http.post('/api/company-news/add-company-news', data);
   }
 
+  public deleteCompanyNews(id) {
+    return this._http.delete('/api/company-news/' + id);
+  }
+
 }

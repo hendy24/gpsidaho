@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
@@ -17,8 +17,6 @@ export class PostComponent implements OnInit, OnDestroy {
   private _editPost: Boolean = false;
   private _id: string = null;
   public post: BlogPost;
-  private subscriptionActive: Boolean = false;
-  private subsciption: Subscription;
 
   constructor(private _blogService: BlogService, private route: ActivatedRoute, private router: Router) {}
 
@@ -32,18 +30,12 @@ export class PostComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
-    if (this.subscriptionActive) {
-      this.subsciption.unsubscribe();
-    }
-  }
 
 
   private getExistingPost() {
     this._id = this.route.snapshot.params['id'];
-    this.subsciption = this._blogService.fetchPost(this._id).subscribe((data: BlogPost) => {
+    this._blogService.fetchPost(this._id).subscribe((data: BlogPost) => {
       this.post = data;
-    this.subscriptionActive = true;
     });
   }
 
@@ -57,9 +49,9 @@ export class PostComponent implements OnInit, OnDestroy {
     console.log(this.post);
 
     if (this._editPost) {
-      this._blogService.updatePost(this.post);
+      this._blogService.updatePost(this.post).subscribe();
     } else {
-      this._blogService.addPost(this.post);
+      this._blogService.addPost(this.post).subscribe();
     }
 
     this.router.navigateByUrl('/dashboard/manage/blog-posts');

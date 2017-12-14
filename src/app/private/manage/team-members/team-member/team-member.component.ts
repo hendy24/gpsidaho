@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
 
 import { TeamMemberService } from '../../../../_services/team-member.service';
 import { TeamMember } from '../../../../_models/team-member';
@@ -11,13 +10,11 @@ import { TeamMember } from '../../../../_models/team-member';
   styleUrls: ['./team-member.component.scss'],
   providers: [TeamMemberService]
 })
-export class TeamMemberComponent implements OnInit, OnDestroy {
+export class TeamMemberComponent implements OnInit {
 
   private _id: string;
   private _edit: Boolean = false;
   public member: TeamMember;
-  private subsciption: Subscription;
-  private subscriptionActive: Boolean = false;
 
 
   constructor(private _teamMemberService: TeamMemberService, private route: ActivatedRoute, private router: Router) { }
@@ -32,13 +29,6 @@ export class TeamMemberComponent implements OnInit, OnDestroy {
   }
 
 
-  ngOnDestroy() {
-    if (this.subscriptionActive) {
-      this.subsciption.unsubscribe();
-    }
-  }
-
-
   /*
     -------------------
     PUBLIC FUNCTIONS
@@ -47,14 +37,12 @@ export class TeamMemberComponent implements OnInit, OnDestroy {
 
   public onSubmit() {
     if (this._edit) {
-      this.subsciption = this._teamMemberService.updateTeamMember(this.member).subscribe((data: TeamMember) => {
+      this._teamMemberService.updateTeamMember(this.member).subscribe((data: TeamMember) => {
         this.member = data;
-        this.subscriptionActive = true;
       });
     } else {
       this._teamMemberService.addTeamMember(this.member).subscribe((data: TeamMember) => {
         this.member = data;
-        this.subscriptionActive = true;
       });
     }
 
@@ -71,10 +59,9 @@ export class TeamMemberComponent implements OnInit, OnDestroy {
 
   private getExisting() {
     this._id = this.route.snapshot.params['id'];
-    this.subsciption = this._teamMemberService.fetchTeamMember(this._id).subscribe((data: TeamMember) => {
+    this._teamMemberService.fetchTeamMember(this._id).subscribe((data: TeamMember) => {
       this.member = data;
     });
-    this.subscriptionActive = true;
   }
 
 }
